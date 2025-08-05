@@ -1,0 +1,127 @@
+<div class="offers-container">
+  <h1>Offers</h1>
+
+  <div class="filters">
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Search by name</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (ngModelChange)="onFilterChange()" placeholder="Rechercher par nom...">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Status</mat-label>
+      <mat-select [(ngModel)]="statusFilter" (ngModelChange)="onFilterChange()">
+        <mat-option *ngFor="let status of statuses" [value]="status">{{ status | titlecase }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label> Minimum Budget</mat-label>
+      <input matInput type="number" [(ngModel)]="minBudget" (ngModelChange)="onFilterChange()">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Maximum Budget</mat-label>
+      <input matInput type="number" [(ngModel)]="maxBudget" (ngModelChange)="onFilterChange()">
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Start Date</mat-label>
+      <input matInput [matDatepicker]="startPicker" [(ngModel)]="startDate" (ngModelChange)="onFilterChange()">
+      <mat-datepicker-toggle matSuffix [for]="startPicker"></mat-datepicker-toggle>
+      <mat-datepicker #startPicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="filter-field">
+      <mat-label>Deadline</mat-label>
+      <input matInput [matDatepicker]="endPicker" [(ngModel)]="endDate" (ngModelChange)="onFilterChange()">
+      <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+      <mat-datepicker #endPicker></mat-datepicker>
+    </mat-form-field>
+
+    <button mat-stroked-button color="warn" (click)="clearFilters()" [disabled]="loading" style="position:absoloute;top:-25px;">RESET</button>
+  </div>
+
+  <button mat-raised-button color="primary" (click)="createNewCampaign()" [disabled]="loading">New Campaign</button>
+
+  <mat-card *ngIf="showCreateForm" class="create-form">
+    <h2>{{ selectedOffer ? 'Modifier l\'offre' : 'Nouvelle offre' }}</h2>
+    <div class="form-grid">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput [(ngModel)]="newOffer.name">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Budget</mat-label>
+        <input matInput type="number" [(ngModel)]="newOffer.budget">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Deadline</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="newOffer.deadline">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select [(ngModel)]="newOffer.status">
+          <mat-option value="pending">Pending</mat-option>
+          <mat-option value="active">Actif</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Views</mat-label>
+        <input matInput type="number" [(ngModel)]="newOffer.views">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Shares</mat-label>
+        <input matInput type="number" [(ngModel)]="newOffer.shares">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Interactions</mat-label>
+        <input matInput type="number" [(ngModel)]="newOffer.interactions">
+      </mat-form-field>
+      <div class="form-actions">
+        <button mat-raised-button color="primary" (click)="onSubmitNewOffer()" [disabled]="loading">
+          {{ selectedOffer ? 'Update' : 'Create' }}
+        </button>
+        <button mat-stroked-button (click)="cancelCreate()" [disabled]="loading">Cancel</button>
+      </div>
+    </div>
+  </mat-card>
+
+  <div class="cards-container">
+    <mat-card *ngFor="let offer of offers"  class="offer-card">
+      <mat-card-header style="background-color: #ffffff; display:flex;
+  justify-content: center;  /* centre horizontalement */
+  align-items: center;border-bottom: 2px solid #f97316;
+      /* centre verticalement */     ">
+        <mat-card-title style="font-size: 50px;font-weight: bold;font-family:'cursive';text-shadow: 4px 2px 4px rgba(24, 24, 24, 0.3);">{{ offer.name }}</mat-card-title>
+        <mat-card-subtitle>
+          <span class="badge badge-{{offer.status}}" style="position: relative; left:20px;">{{ offer.status | titlecase }}</span>
+        </mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="offer-details" style="font-size: 20px; padding-right: 10px;">
+          <p ><strong>Budget:</strong> {{ offer.budget | currency:'EUR' }}</p>
+          <p><strong >Deadline:</strong> <span style="color:red ; font-size: 22px;padding-left: 10px;">{{ offer.deadline }}</span></p>
+          <p><strong>Views:</strong> <span style="padding: 18px;">{{ offer.views }}</span></p>
+          <p><strong>Shares:</strong><span style="padding: 18px;">{{ offer.shares }}</span></p>
+          <p><strong>Interactions:</strong> <span style="padding: 18px;">{{ offer.interactions }}</span></p>
+        </div>
+      </mat-card-content>
+      <mat-card-actions style="background-color: #f79c46;" class="matca">
+        <div class="text"  >Let's Collaborate</div>
+        <button mat-icon-button [matMenuTriggerFor]="menu" [disabled]="loading || offer.status === 'expired' || offer.status === 'completed'">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" >
+          <button mat-menu-item (click)="editOffer(offer)" [disabled]="loading || offer.status === 'expired' || offer.status === 'completed'">Update</button>
+          <button mat-menu-item (click)="completeOffer(offer)" [disabled]="loading || offer.status === 'expired' || offer.status === 'completed'">Finish</button>
+        </mat-menu>
+      </mat-card-actions>
+    </mat-card>
+
+    <div class="no-offers" *ngIf="!offers || offers.length === 0">
+      No offers available.
+    </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="logo">
+  <h1 style="color: #f97316; font-weight: 600; text-align: center; font-family: cursive; font-size: 25px; position: absolute; top: 10px; left: 20px; z-index: 1000;">
+    <a href="/buzzmark/src/app/home/home.component.html">Buzzmark</a>
+  </h1>
+</div>
+
+<mat-card class="payment-card">
+  <mat-card-content>
+    <div class="plans-container">
+      <mat-card class="plan-card" [class.selected]="plan === 'Basic'" (click)="selectPlan('Basic')">
+        <div class="plan-inner">
+          <mat-radio-button [checked]="plan === 'Basic'" value="Basic"></mat-radio-button>
+          <h3>Basic</h3>
+          <p>$3.2 / month</p>
+          <ul>
+            <li>Basic collaboration tools</li>
+            <li>2 collaborations per month</li>
+            <li>Email support</li>
+          </ul>
+        </div>
+      </mat-card>
+
+      <mat-card class="plan-card" [class.selected]="plan === 'Premium'" (click)="selectPlan('Premium')">
+        <div class="plan-inner">
+          <mat-radio-button [checked]="plan === 'Premium'" value="Premium"></mat-radio-button>
+          <h3>Pro</h3>
+          <p>$8 / month</p>
+          <ul>
+            <li>Special achievement gifts</li>
+            <li>Up to 8 collaborations per month</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+      </mat-card>
+
+      <mat-card class="plan-card" [class.selected]="plan === 'VIP'" (click)="selectPlan('VIP')">
+        <div class="plan-inner">
+          <mat-radio-button [checked]="plan === 'VIP'" value="VIP"></mat-radio-button>
+          <h3>Premium</h3>
+          <p>$19 / month</p>
+          <ul>
+            <li>AI services (Analytics, help, filters ...)</li>
+            <li>Unlimited collaborations</li>
+            <li>Dedicated manager</li>
+          </ul>
+        </div>
+      </mat-card>
+    </div>
+
+    <!-- Durée d'abonnement -->
+    <div *ngIf="plan" class="duration-select" style="margin-top: 20px;">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Subscription Duration</mat-label>
+        <mat-select [(ngModel)]="selectedDuration" name="duration" required>
+          <mat-option value="1month">1 Month</mat-option>
+          <mat-option value="6months">6 Months</mat-option>
+          <mat-option value="1year">1 Year</mat-option>
+          <div *ngIf="getPrice() !== null" style="text-align: center; margin-bottom: 15px;">
+  <p style="font-size: 18px; color: #f97316; font-weight: bold;">
+    Total Price: ${{ getPrice() | number:'1.2-2' }}
+  </p>
+</div>
+
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- Formulaire de paiement -->
+    <form *ngIf="plan && selectedDuration" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Card Number</mat-label>
+        <input matInput [(ngModel)]="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" required>
+      </mat-form-field>
+
+      <div class="card-details">
+        <mat-form-field appearance="outline">
+          <mat-label>Expiry Date</mat-label>
+          <input matInput [(ngModel)]="cardExpiry" name="cardExpiry" placeholder="MM/YY" required>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>CVV</mat-label>
+          <input matInput [(ngModel)]="cardCvv" name="cardCvv" placeholder="123" required>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">
+        <span *ngIf="!isLoading">Pay</span>
+        <mat-spinner *ngIf="isLoading" diameter="20"></mat-spinner>
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

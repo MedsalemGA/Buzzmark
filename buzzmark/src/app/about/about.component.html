@@ -1,0 +1,46 @@
+<mat-toolbar class="navbar">
+  <span class="logo" style="font-family: cursive;"><a href="/buzzmark/src/app/home/home.component.html">Buzzmark</a></span>
+  <span class="spacer"></span>
+  <div class="nav-links">
+    <a mat-button [routerLink]="['/']" class="nav-link active">Home</a>
+    <a mat-button [routerLink]="['/about']" class="nav-link" >About</a>
+    <a mat-button href="#contact" class="nav-link" >Contact</a>
+  </div>
+  <span class="spacer"></span>
+  <a mat-button [routerLink]="['/login']" class="login-btn">Login</a>
+</mat-toolbar>
+
+<!-- Hero Section -->
+<section class="hero" style="background-image: url('/heroabout2.png');">
+  <div class="hero-content">
+    <h1>About Us</h1>
+    <p>At Buzzmark, we are dedicated to connecting brands and influencers to create authentic and effective marketing campaigns.
+        What make us unique is our AI services that make your choice easier with high effency.
+    </p>
+  </div>
+</section>
+
+<!-- Team Section -->
+<section class="team">
+  <h2>Meet Our Team</h2>
+  <div class="team-grid">
+    <div class="team-member" *ngFor="let member of teamMembers">
+      <img [src]="member.image" [alt]="member.name">
+      <h3>{{ member.name }}</h3>
+      <p>{{ member.role }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- Mission Section -->
+<section class="mission">
+  <h2>Our Mission</h2>
+  <p>Our mission is to empower businesses and individuals with cutting-edge technology and creative solutions that drive success and growth.</p>
+  <img src="/mission.png" alt="Mission Image" class="mission-image">
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>&copy; 2025 Buzzmark. All rights reserved.</p>
+</footer>
+```

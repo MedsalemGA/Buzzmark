@@ -1,0 +1,220 @@
+<div class="account-container">
+  <!-- Bouton Upgrade en haut -->
+  <div class="upgrade-button">
+    <button mat-raised-button color="accent" (click)="upgradeSubscription()">
+      <mat-icon>upgrade</mat-icon> New Subscription
+    </button>
+  </div>
+
+  <mat-card class="account-card">
+    <mat-card-header>
+      <mat-card-title style="color: rgb(255, 102, 1); font-family: cursive; font-size: 30px;">My Account</mat-card-title>
+      <mat-card-subtitle>Manage Your Profil</mat-card-subtitle>
+      <div class="icon"></div>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="userForm" (ngSubmit)="saveChanges()" *ngIf="user">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>New Password</mat-label>
+          <input matInput [type]="showPassword ? 'text' : 'password'" formControlName="password">
+          <mat-icon matSuffix (click)="togglePasswordVisibility()" style="cursor: pointer;">
+            {{ showPassword ? 'visibility' : 'visibility_off' }}
+          </mat-icon>
+          <mat-hint>Secured with masking</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Phone Number</mat-label>
+          <input matInput formControlName="phone_number" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Address</mat-label>
+          <input matInput formControlName="address" >
+        </mat-form-field>
+
+        <div *ngIf="user.client_type === 'entreprise'">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Company Name</mat-label>
+            <input matInput formControlName="company_name">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Field</mat-label>
+            <input matInput formControlName="industry">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Commercial Number</mat-label>
+            <input matInput formControlName="numero_commercial">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Logo (URL)</mat-label>
+            <input matInput formControlName="logo">
+          </mat-form-field>
+        </div>
+
+        <div *ngIf="user.client_type === 'influencer'">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="full_name">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Link TikTok</mat-label>
+            <input matInput formControlName="tiktok_url">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Link Instagram</mat-label>
+            <input matInput formControlName="instagram_url">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Link YouTube</mat-label>
+            <input matInput formControlName="youtube_url">
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Profile Picture (URL)</mat-label>
+            <input matInput formControlName="photo_de_profil">
+          </mat-form-field>
+        </div>
+
+      
+
+        <button mat-raised-button color="primary" type="submit" class="save-btn" [disabled]="userForm.invalid">Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Bouton Delete Account en bas -->
+  <div class="delete-button">
+    <button mat-raised-button color="warn" (click)="deleteAccount()">Delete Account</button>
+  </div>
+</div>
+
+<style>
+.account-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+ 
+  padding: 20px;
+}
+
+.upgrade-button {
+  margin-bottom: 20px;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  
+}
+
+.upgrade-button button {
+  
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.upgrade-button button:hover {
+  transform: scale(1.05);
+  background-color: rgb(255, 102, 1)
+}
+
+.account-card {
+  width: 100%;
+  max-width: 500px;
+  padding: 30px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.save-btn {
+  background-color: #4a90e2;
+  color: white;
+  border-radius: 25px;
+  padding: 10px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  transform: scale(1.05);
+  background-color: rgb(255, 102, 1);
+}
+
+.delete-button {
+  margin-top: 20px;
+}
+
+.delete-button button {
+  background-color: #e74c3c;
+  color: white;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+
+}
+
+.delete-button button:hover {
+  transform: scale(1.05);
+  background-color: #c0392b;
+}
+
+mat-form-field {
+  border-radius: 8px;
+  background: #f5f6fa;
+}
+
+mat-form-field.mat-focused {
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+.icon{
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-image: url('/logorem.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  
+  margin-right: 10px;
+
+}
+@media (max-width:768px){
+  .icon{
+    right: -40px;
+    top: -25px;
+  }
+  .account-card{
+    width: 90%;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .upgrade-button{
+    right: 0px;
+  }
+  .delete-button{
+    position: absolute;
+    top: -10px;
+    left: 29px;
+  }
+}
+</style>

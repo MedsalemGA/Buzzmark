@@ -1,0 +1,33 @@
+/* home-entreprise.component.css */
+.sidebar {
+  width: 4rem; /* w-16 */
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.sidebar.translate-x-0 {
+  width: 16rem; /* w-64, ensures enough space for text */
+}
+
+.sidebar .block {
+  display: block !important; /* Override any hidden styles */
+}
+
+/* Prevent text overflow */
+.sidebar nav a span {
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* Media queries for responsive behavior */
+@media (min-width: 768px) {
+  .sidebar {
+    width: 4rem; /* md:w-16 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .sidebar {
+    width: 16rem; /* lg:w-64 */
+  }
+}

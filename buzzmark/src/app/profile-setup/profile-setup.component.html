@@ -1,0 +1,66 @@
+<div class="profile-container">
+  <mat-card class="profile-card">
+    <mat-card-header>
+      <mat-card-title>Complétez votre profil</mat-card-title>
+      <mat-card-subtitle>Ajoutez vos informations pour commencer</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form class="profile-form" (ngSubmit)="onSubmit()">
+        <!-- Type de client (affiché pour référence, non modifiable) -->
+        <mat-form-field appearance="outline" class="full-width" *ngIf="clientType">
+          <mat-label>Type de client</mat-label>
+          <input matInput [value]="clientType | titlecase" readonly>
+        </mat-form-field>
+
+        <!-- Champs pour Entreprise -->
+        <div *ngIf="clientType === 'entreprise'">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Logo (URL)</mat-label>
+            <input matInput [(ngModel)]="logoUrl" name="logoUrl">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Numéro commercial</mat-label>
+            <input matInput [(ngModel)]="commercialNumber" name="commercialNumber" required>
+            <mat-error *ngIf="commercialNumberError">Ce champ est requis</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Adresse</mat-label>
+            <input matInput [(ngModel)]="address" name="address">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Description</mat-label>
+            <textarea matInput [(ngModel)]="description" name="description"></textarea>
+          </mat-form-field>
+        </div>
+
+        <!-- Champs pour Influenceur -->
+        <div *ngIf="clientType === 'influenceur'">
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Nom complet</mat-label>
+            <input matInput [(ngModel)]="fullName" name="fullName" required>
+            <mat-error *ngIf="fullNameError">Ce champ est requis</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Biographie</mat-label>
+            <textarea matInput [(ngModel)]="biography" name="biography"></textarea>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Lien TikTok</mat-label>
+            <input matInput [(ngModel)]="tiktokUrl" name="tiktokUrl">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Lien Instagram</mat-label>
+            <input matInput [(ngModel)]="instagramUrl" name="instagramUrl">
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Lien YouTube</mat-label>
+            <input matInput [(ngModel)]="youtubeUrl" name="youtubeUrl">
+          </mat-form-field>
+        </div>
+
+        <!-- Bouton Enregistrer -->
+        <button mat-raised-button color="primary" type="submit" class="full-width profile-btn" (click)="onSubmit()">Enregistrer</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

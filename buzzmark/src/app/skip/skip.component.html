@@ -1,0 +1,194 @@
+<div class="slogan">
+  <p *ngIf="clientType === 'entreprise'" style="transform: rotate(360deg);position: absolute;bottom: 20%;left: 20%;line-height: 1.5; width:200px" class="slogan-text1" >{{ displayedText }}</p>
+  <p *ngIf="clientType === 'influenceur'" class="slogan-text">Attend the next level of your career with Buzzmark</p>
+</div>
+
+<div class="logo">
+  <h1><a>Buzzmark</a></h1>
+</div>
+
+<div class="skip-container">
+  <h2 class="form-title">Complete your profil</h2>
+  <form (ngSubmit)="onSubmit()" #skipForm="ngForm">
+    <!-- Champs communs -->
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Phone Number</mat-label>
+      <input matInput [(ngModel)]="skipData.phone_number" name="phone_number">
+    </mat-form-field>
+    <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+      <mat-label>Address</mat-label>
+      <input matInput [(ngModel)]="skipData.address" name="address">
+    </mat-form-field>
+
+    <!-- Champs entreprise -->
+    <div *ngIf="clientType === 'entreprise'">
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+        <mat-label>Logo (URL)</mat-label>
+        <input matInput [(ngModel)]="skipData.logo" name="logo">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+        <mat-label>Field</mat-label>
+        <input matInput [(ngModel)]="skipData.secteur" name="secteur">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+        <mat-label>Commercial Number</mat-label>
+        <input matInput [(ngModel)]="skipData.numero_commercial" name="numero_commercial">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+        <mat-label>Description</mat-label>
+        <input matInput [(ngModel)]="skipData.description" name="description">
+      </mat-form-field>
+    </div>
+
+    <!-- Champs influenceur -->
+    <div *ngIf="clientType === 'influenceur'">
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+        <mat-label>Profile Picture (URL)</mat-label>
+        <input matInput [(ngModel)]="skipData.photo_de_profil" name="photo_de_profil">
+      </mat-form-field>
+      <mat-form-field appearance="fill" style="width: 100%; margin-bottom: 15px;">
+        <mat-label>Birthday</mat-label>
+        <input matInput [matDatepicker]="picker" [(ngModel)]="skipData.date_de_naissance" name="age">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <!-- Boutons -->
+    <div class="button-row">
+      <button mat-raised-button type="submit" [disabled]="!skipForm.valid" class="action-button">Save</button>
+      <button *ngIf="clientType === 'entreprise' || clientType === 'influenceur'" mat-raised-button (click)="onSkip()" class="action-button skip-btn">Skip</button>
+    </div>
+  </form>
+</div>
+<style>
+.skip-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: wheat;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 90%;
+}
+
+.form-title {
+  color: #f97316;
+  font-weight: 600;
+  text-align: center;
+  font-family: cursive;
+  font-size: 30px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.action-button {
+  flex: 1;
+  background-color: #1e3a8a !important;
+  color: white !important;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background-color 1.5s ease;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+
+.action-button:hover {
+  transform: scale(1.05);
+  background-color: #f97316 !important;
+  color: white;
+}
+
+.logo h1 {
+  color: #f97316;
+  font-weight: 600;
+  text-align: center;
+  font-family: cursive;
+  font-size: 25px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.slogan {
+  position: absolute;
+  bottom: 40%;
+  left: 21%;
+  font-size: 30px;
+  font-weight: bold;
+  color: #f97316;
+  font-family: cursive;
+  text-shadow: 4px 4px 4px rgba(5, 8, 166, 0.3);
+  animation: blinkCursor 0.75s step-end infinite;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+.slogan-text {
+  position: absolute;
+  top: 250px;
+  left: 200px;
+  width: clamp(200px, 60vw, 800px);
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #f97316;
+}
+
+@media (max-width: 768px) {
+  .skip-container{
+    width: 75%;
+    height: 80%;
+  }
+  .skip-container .form-title {
+    font-size: 20px;
+  }
+  .slogan {
+    font-size: 20px;
+    left: 5%;
+    bottom: 45%;
+    text-align: center;
+  }
+
+  .slogan-text {
+    visibility: hidden;
+  }
+  .slogan-text1 {
+    visibility: hidden;
+  }
+
+  .logo h1 {
+    font-size: 19px;
+  }
+
+  .button-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .action-button {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 1300px) {
+  .slogan-text1{
+    visibility: hidden;
+
+  }
+  .slogan-text{
+    visibility: visible;
+  }
+}
+
+</style>

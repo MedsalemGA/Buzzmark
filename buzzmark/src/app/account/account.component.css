@@ -1,0 +1,63 @@
+/* src/styles/sweetalert2-custom.css */
+.swal2-popup {
+  font-family: 'Futura', cursive, sans-serif;
+  border: 2px solid #ff661a;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.dark .swal2-popup {
+  background-color: #1f2937;
+  color: #ffffff;
+}
+
+.swal2-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff661a;
+}
+
+.swal2-content {
+  font-size: 1rem;
+}
+
+.swal2-confirm, .swal2-cancel {
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-weight: bold;
+  opacity: 1 !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+
+.swal2-confirm {
+  background-color: #ff661a !important;
+  color: #ffffff !important;
+}
+
+.swal2-cancel {
+  background-color: #6b7280 !important;
+  color: #ffffff !important;
+}
+
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: #ff661a !important;
+}
+
+.swal2-icon.swal2-error {
+  border-color: #dc2626 !important;
+}
+
+.swal2-icon.swal2-question {
+  border-color: #ff661a !important;
+}
+
+.swal2-icon.swal2-info {
+  border-color: #2563eb !important;
+}
+
+.swal2-custom-toast {
+  font-size: 0.9rem;
+  padding: 10px;
+}

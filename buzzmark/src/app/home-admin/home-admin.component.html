@@ -1,0 +1,78 @@
+
+
+<div class="container flex min-h-screen relative">
+  <div id="sidebar" class="sidebar w-[var(--sidebar-width)] bg-white dark:bg-[#1e1e1e] shadow-[5px_0_25px_rgba(0,0,0,0.05)] fixed h-full z-[100] transition-all duration-[var(--transition-speed)] rounded-r-[20px] overflow-hidden">
+    <div class="sidebar__logo flex items-center justify-center p-5 border-b border-[rgba(0,0,0,0.05)] bg-gradient-to-r from-primary to-primaryDark">
+      <h2 style="color:rgb(211, 94, 10)  ;font-family: cursive;font-size: 45px; text-shadow: 4px 2px 4px rgba(5, 8, 166, 0.3);text-align: left;font-weight: bold; padding:10px">Buzzmark</h2>
+    <div class="sidebar__nav">
+      <ul class="list-none p-5">
+        <li>
+          <a routerLink="/dashboard" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-dashboard-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Tableau de bord
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/entreprises" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-building-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Entreprises/Marques
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/influenceurs" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-user-star-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Influenceurs
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/messagerie" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-mail-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Messagerie
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/offres" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-price-tag-3-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Offres
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/postulations" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-file-user-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Postulations
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/configuration" routerLinkActive="active" class="group flex items-center px-8 py-4 text-dark dark:text-[#e0e0e0] transition-all duration-[var(--transition-speed)] my-2 mx-4 rounded-xl font-medium relative overflow-hidden hover:bg-[rgba(67,97,238,0.1)] hover:text-primary active:bg-gradient-to-r active:from-primary active:to-primaryDark active:text-white">
+            <i class="ri-settings-3-line mr-4 text-xl transition-transform duration-[var(--transition-speed)] group-hover:translate-x-1"></i> Configuration
+            <span class="absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-primary to-primaryDark opacity-0 transition-all duration-400 ease-in-out group-hover:left-0 group-hover:opacity-100 z-[-1]"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#" (click)="logout()" class="flex items-center px-8 py-4 text-white bg-gradient-to-r from-danger to-dangerDark my-2 mx-4 rounded-xl font-medium transition-all duration-[var(--transition-speed)] hover:shadow-[0_4px_10px_rgba(247,37,133,0.3)] hover:-translate-y-0.5">
+            <i class="ri-logout-box-line mr-2"></i> Déconnexion
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="main-content flex-1 ml-[var(--sidebar-width)] p-8 transition-all duration-[var(--transition-speed)]">
+    <button class="md:hidden text-dark dark:text-light" (click)="toggleSidebar()">
+      <i class="ri-menu-line text-2xl"></i>
+    </button>
+    <nav class="nav__header flex justify-between items-center mb-10 pb-5 border-b border-[rgba(0,0,0,0.05)] relative">
+      <div class="nav__header__left flex items-center">
+        <i class="{{ pageIcon }} text-2xl mr-2 text-primary dark:text-primaryDark transition-all duration-[var(--transition-speed)]"></i>
+        <h1 class="relative pl-4 text-3xl font-semibold text-dark dark:text-light before:content-[''] before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:w-1 before:h-6 before:bg-gradient-to-b before:from-primary before:to-primaryDark before:rounded-[10px]">{{ pageTitle }}</h1>
+      </div>
+      <div class="nav__header__right flex items-center">
+        <span class="admin-info mr-5 text-sm text-dark dark:text-[#e0e0e0] bg-[rgba(67,97,238,0.1)] py-2 px-4 rounded-[20px] font-medium transition-all duration-[var(--transition-speed)] hover:bg-[rgba(67,97,238,0.15)] hover:-translate-y-0.5">{{ adminName }}</span>
+        <button class="dark-mode-toggle bg-gradient-to-r from-primary to-primaryDark border-none cursor-pointer text-white w-10 h-10 rounded-full flex items-center justify-center transition-all duration-[var(--transition-speed)] shadow-[0_5px_15px_rgba(67,97,238,0.3)] hover:-translate-y-1 hover:rotate-12 hover:shadow-[0_8px_20px_rgba(67,97,238,0.4)]" (click)="toggleDarkMode()">
+          <i [ngClass]="isDarkMode ? 'ri-moon-line' : 'ri-sun-line'" class="text-xl transition-all duration-[var(--transition-speed)]"></i>
+        </button>
+      </div>
+    </nav>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+    

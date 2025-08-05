@@ -1,0 +1,35 @@
+/* Ajouter des animations pour l'indicateur de saisie */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.animate-bounce {
+  animation: bounce 0.6s infinite;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+/* Ajuster les bulles de messages */
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
+.rounded-tl-sm {
+  border-top-left-radius: 0.25rem;
+}
+
+.rounded-tr-sm {
+  border-top-right-radius: 0.25rem;
+}
+
+/* Améliorer le focus des inputs */
+input:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}

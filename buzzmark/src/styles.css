@@ -1,0 +1,167 @@
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import 'swiper/css';
+@import 'swiper/css/navigation';
+@import 'swiper/css/pagination';
+@import 'swiper/css/effect-fade';
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Complete fix for Angular Material form fields with Tailwind CSS */
+/* Reset Tailwind's border reset for Material form fields */
+.mat-mdc-form-field * {
+  box-sizing: border-box;
+}
+
+/* Fix the outline appearance */
+.mat-mdc-form-field .mdc-notched-outline {
+  border: none !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__leading,
+.mat-mdc-form-field .mdc-notched-outline__notch,
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border: 1px solid rgba(0, 0, 0, 0.38) !important;
+  border-radius: 4px;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__leading {
+  border-right: none !important;
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__trailing {
+  border-left: none !important;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline__notch {
+  border-left: none !important;
+  border-right: none !important;
+  border-top: none !important;
+}
+
+/* Focus state */
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: #f05b29 !important;
+  border-width: 2px !important;
+}
+
+/* Hover state */
+.mat-mdc-form-field:hover:not(.mat-focused) .mdc-notched-outline__leading,
+.mat-mdc-form-field:hover:not(.mat-focused) .mdc-notched-outline__notch,
+.mat-mdc-form-field:hover:not(.mat-focused) .mdc-notched-outline__trailing {
+  border-color: rgba(0, 0, 0, 0.87) !important;
+}
+
+/* Remove all unwanted pseudo-elements and lines */
+.mat-mdc-form-field .mdc-text-field::before,
+.mat-mdc-form-field .mdc-text-field::after,
+.mat-mdc-form-field .mdc-line-ripple,
+.mat-mdc-form-field .mdc-line-ripple::before,
+.mat-mdc-form-field .mdc-line-ripple::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Ensure no border on the input container */
+.mat-mdc-form-field .mdc-text-field {
+  border: none !important;
+  background: transparent !important;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* EMERGENCY FIX: Force remove all unwanted lines and borders */
+* {
+  border-image: none !important;
+}
+
+.mat-mdc-form-field *,
+.mat-mdc-form-field *::before,
+.mat-mdc-form-field *::after {
+  border-image: none !important;
+  background-image: none !important;
+}
+
+/* Force remove any line that might appear in form fields */
+.mdc-text-field::before,
+.mdc-text-field::after,
+.mdc-text-field--outlined::before,
+.mdc-text-field--outlined::after,
+.mdc-line-ripple,
+.mdc-line-ripple::before,
+.mdc-line-ripple::after {
+  display: none !important;
+  content: none !important;
+  border: none !important;
+  background: none !important;
+  height: 0 !important;
+  width: 0 !important;
+}
+
+/* Force clean outline */
+.mat-mdc-form-field .mdc-notched-outline {
+  border: none !important;
+  background: none !important;
+}
+
+.mat-mdc-form-field .mdc-notched-outline * {
+  background: none !important;
+  border-image: none !important;
+}
+
+.footer {
+  background: #1e3a8a;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-section {
+  min-width: 200px;
+}
+
+.social-link {
+  display: block;
+  color: #f97316;
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+.footer-bottom {
+  margin-top: 20px;
+  font-size: 14px;
+}
+.swal2-confirm,
+.swal2-cancel {
+  @apply visible opacity-100 text-white px-4 py-2 rounded font-medium;
+}
+
+.swal2-confirm {
+  @apply bg-orange-600;
+}
+
+.swal2-cancel {
+  @apply bg-gray-500;
+}
+
+
+     

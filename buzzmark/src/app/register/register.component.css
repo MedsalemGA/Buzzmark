@@ -1,0 +1,380 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: white;
+  padding: 16px;
+}
+
+.register-card {
+  max-width: 400px;
+  width: 100%;
+  background: transparent;
+  border-radius: 16px;
+ box-shadow: 0 8px 16px rgba(239, 102, 22, 0.871);
+  padding: 16px;
+  animation: fadeIn 1s ease-in-out;
+   border: 4px solid #f97316;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.register-form .mat-mdc-form-field {
+  margin-bottom: 12px;
+}
+
+.register-form .mat-mdc-form-field .mdc-text-field {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 6px 6px 0 0 !important;
+  border: none !important;
+}
+
+.register-form .mat-mdc-form-field .mdc-text-field--filled {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+.register-form .mat-mdc-form-field .mdc-line-ripple {
+  background-color: #1976d2 !important;
+}
+
+.register-form .mat-mdc-form-field .mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::before {
+  border-bottom-color: rgba(0, 0, 0, 0.42) !important;
+}
+
+ .register-btn {
+       background: #070707;
+       padding: 10px;
+       font-size: 16px;
+       transition: transform 0.3s ease;
+       border-radius: 20px;
+      color: #f97316;
+      font-weight: bold;
+
+     }
+
+     .register-btn:hover {
+       transform: scale(1.05);
+     
+     }
+
+.google-login {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 12px;
+}
+
+.login-link a {
+  color: #f97316;
+  text-decoration: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.title {
+  font-family: 'cursive';
+  font-size: 300px;
+  background: linear-gradient(90deg, #000000, #f06806);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  opacity: 0.06;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  height: auto;
+  white-space: nowrap;
+  
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 768px) {
+  .register-container {
+    padding: 12px;
+  }
+
+  .register-card {
+    max-width: 350px;
+    padding: 12px;
+    border-radius: 12px;
+  }
+
+  .register-form {
+    gap: 12px;
+  }
+
+  .register-form .mat-mdc-form-field {
+    margin-bottom: 10px;
+  }
+
+  .register-btn {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  .google-login, .login-link {
+    margin-top: 12px;
+  }
+
+  .login-link {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 120px;
+    
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .register-container {
+    padding: 8px;
+  }
+
+  .register-card {
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .register-form {
+    gap: 10px;
+  }
+
+  .register-form .mat-mdc-form-field {
+    margin-bottom: 8px;
+  }
+
+  .register-btn {
+    font-size: 11px;
+    padding: 5px;
+  }
+
+  .google-login, .login-link {
+    margin-top: 10px;
+  }
+
+  .login-link {
+    font-size: 10px;
+  }
+
+  .title {
+    font-size: 60px;
+  }
+}
+
+.navbar {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: #f97316; /* Orange vif */
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: white;
+  font-size: 16px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #f97316; /* Orange sur hover */
+}
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #f97316; /* Ligne orange */
+  bottom: -4px;
+  left: 0;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.nav-link.active {
+  color: #f97316; /* Home orange par défaut */
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #f97316; /* Ligne orange pour Home */
+  bottom: -4px;
+  left: 0;
+}
+.footer-dark {
+  padding:50px 0;
+  color:#f97316;
+  background-color:#131414;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+.footer-dark ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:14px;
+  margin-bottom:0;
+}
+
+.footer-dark ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.6;
+}
+
+.footer-dark ul a:hover {
+  opacity:0.8;
+  
+}
+
+
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  box-shadow:0 0 0 1px rgba(255,255,255,0.4);
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+
+
+.password-strength {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.password-strength.very-short {
+  color: #dc3545;
+}
+
+.password-strength.very-weak {
+  color: #dc3545;
+}
+
+.password-strength.weak {
+  color: #ffc107;
+}
+
+.password-strength.good {
+  color: #28a745;
+}
+
+.password-strength.perfect {
+  color: #1e7e34;
+}
+
+.visibility-toggle {
+  cursor: pointer;
+  color: #6c757d;
+}
+
+.visibility-toggle:hover {
+  color: #495057;
+}

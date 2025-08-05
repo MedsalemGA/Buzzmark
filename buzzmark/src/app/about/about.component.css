@@ -1,0 +1,239 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  line-height: 1.6;
+  color: #333;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
+  overflow: hidden;
+  filter: blur(5px); /* Blur effect for the entire hero section */
+  transition: filter 0.3s ease;
+}
+
+
+.hero:hover {
+  filter: blur(0); /* Remove blur on hover for interactivity */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for text readability */
+  padding: 50px;
+  border-radius: 10px;
+  filter: blur(0); /* Remove blur for text */
+  top: 25%;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Team Section */
+.team {
+  padding: 60px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.team h2 {
+  font-size: 2.5rem;
+  color: #f97316;
+  margin-bottom: 40px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.team-member {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-member:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.team-member img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 15px;
+}
+
+.team-member h3 {
+  font-size: 1.5rem;
+  color: #f97316;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Mission Section */
+.mission {
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #f97316, #ea580c);
+  color: white;
+  text-align: center;
+}
+
+.mission h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.mission p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.mission-image {
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Footer */
+footer {
+  background: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p, .mission p {
+    font-size: 1rem;
+  }
+
+  .team-member img {
+    width: 120px;
+    height: 120px;
+  }
+}
+.navbar {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), transparent);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.logo a{
+  color: #f97316;
+   text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.nav-links {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-link {
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  font-weight: 400px;
+  position: relative;
+  transition: color 0.3s ease;
+  text-shadow: 2px 2px 4px rgba(250, 173, 18, 0.3);
+}
+
+.nav-link:hover {
+  color: #f97316;
+}
+
+.nav-link:hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #f97316;
+  bottom: -4px;
+  left: 0;
+  animation: slideIn 0.3s ease-in-out;
+}
+
+.nav-link.active {
+  color: #f97316;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: #f97316;
+  bottom: -4px;
+  left: 0;
+}
+
+.login-btn {
+  background: transparent;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 6px 12px;
+  transition: color 0.3s ease;
+}
+
+.login-btn:hover {
+  color: #f97316;
+}

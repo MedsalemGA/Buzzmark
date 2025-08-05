@@ -1,0 +1,60 @@
+.verify-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3a8a, #f97316);
+  padding: 20px;
+}
+
+.verify-card {
+  max-width: 400px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.verify-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.verify-btn {
+  padding: 10px;
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.verify-btn:hover {
+  transform: scale(1.05);
+}
+
+.resend-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.resend-link a {
+  color: #f97316;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.resend-link a:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
